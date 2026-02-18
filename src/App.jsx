@@ -5,8 +5,8 @@ import Layout from './pages/Layout'
 const App = () => {
   return (
     <div>
-      {/* <Authentication /> */}
-      <Layout />
+      <Authentication />
+      {/* <Layout /> */}
     </div>
   )
 }
