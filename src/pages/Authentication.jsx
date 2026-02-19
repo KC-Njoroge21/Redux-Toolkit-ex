@@ -1,5 +1,6 @@
 import React from 'react'
 import { useDispatch } from 'react-redux';
+import { authActions } from '../store/auth-slice';
 
 const Authentication = () => {
 
@@ -8,12 +9,14 @@ const Authentication = () => {
   const handleSubmit = (e) => {
  e.preventDefault();
 
+ dispatch(authActions.login())
+
 
   }
 
   return (
     <div>
-      <form className='w-1/3 min-w-75 mx-auto shadow-lg p-3 border flex flex-col gap-6 border-gray-200' action="">
+      <form className='w-1/3 min-w-75 mx-auto shadow-lg p-3 border flex flex-col gap-6 border-gray-200' onSubmit={handleSubmit} action="">
       <h1 className='text-center font-semibold text-lg'>Authentication Page</h1>
         <div className='flex flex-col'>
           <label className='text-lg font-semibold' htmlFor="id">Id:</label>

@@ -6,6 +6,10 @@ import { useSelector } from 'react-redux'
 const App = () => {
 
   const isLoggedIn = useSelector(state => state.auth.isLoggedIn )
+
+  const itemsListArray = useSelector(state => state.cart.itemList)
+
+  console.log(itemsListArray)
   
 
   return (

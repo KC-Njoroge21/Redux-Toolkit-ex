@@ -21,15 +21,15 @@ const cartSlice = createSlice({
 
       if (itemExists) {
         itemExists.quantity++
-        itemExists.totalPrice++
+        itemExists.totalPrice += newItem.price
       }
       else {
         state.itemList.push({
-          id: itemExists.id,
-          name: itemExists.name,
-          price: itemExists,price,
+          id: newItem.id,
+          name: newItem.name,
+          price: newItem.price,
           quantity: 1,
-          totalPrice: itemExists.price
+          totalPrice: newItem.price
         })
       }
     },
@@ -38,3 +38,6 @@ const cartSlice = createSlice({
   }
 
 })
+
+export const cartActions = cartSlice.actions
+export default cartSlice
