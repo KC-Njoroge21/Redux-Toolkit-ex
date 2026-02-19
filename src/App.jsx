@@ -6,11 +6,12 @@ import { useSelector } from 'react-redux'
 const App = () => {
 
   const isLoggedIn = useSelector(state => state.auth.isLoggedIn )
+  
 
   return (
     <div>
       {!isLoggedIn && <Authentication />}
-      {/* <Layout /> */}
+     {isLoggedIn &&  <Layout />}
     </div>
   )
 }

@@ -1,6 +1,16 @@
 import React from 'react'
+import { useDispatch } from 'react-redux';
 
 const Authentication = () => {
+
+  const dispatch = useDispatch();
+
+  const handleSubmit = (e) => {
+ e.preventDefault();
+
+
+  }
+
   return (
     <div>
       <form className='w-1/3 min-w-75 mx-auto shadow-lg p-3 border flex flex-col gap-6 border-gray-200' action="">
