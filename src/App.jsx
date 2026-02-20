@@ -2,6 +2,7 @@ import React from 'react'
 import Authentication from './pages/Authentication'
 import Layout from './pages/Layout'
 import { useSelector } from 'react-redux'
+import Header from './components/Header'
 
 const App = () => {
 
@@ -15,7 +16,7 @@ const App = () => {
   return (
     <div>
       {!isLoggedIn && <Authentication />}
-     {isLoggedIn &&  <Layout />}
+     {isLoggedIn &&  <div><Header /> <Layout /></div>}
     </div>
   )
 }

@@ -7,7 +7,11 @@ const Product = (props) => {
   const dispatch = useDispatch()
 
   const addItemToCart = () => {
-    dispatch(cartActions.addToCart())
+    dispatch(cartActions.addToCart({
+      id: props.items.id,
+      name: props.items.name,
+      price: props.items.price,
+    }))
   }
 
   return (
