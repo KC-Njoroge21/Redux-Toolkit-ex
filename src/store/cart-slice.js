@@ -38,6 +38,9 @@ const cartSlice = createSlice({
       
 
     },
+    setShowCart(state, action) {
+      state.showCart = !state.showCart
+    }
 
  
   }

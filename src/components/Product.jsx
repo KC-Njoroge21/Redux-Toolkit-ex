@@ -22,7 +22,7 @@ const Product = (props) => {
         <p className='text-3xl font-semibold text-center text-gray-600'>${props.items.price}</p>
       </div>
       <div className='flex justify-center'>
-        <button onClick={addItemToCart} className='bg-amber-500 p-2 text-white font-semibold rounded-sm'>Add to Favorites</button>
+        <button onClick={addItemToCart} className='bg-amber-500 p-2 text-white font-semibold rounded-sm'>Add to Cart</button>
       </div>
     </div>
   )
