@@ -33,8 +33,10 @@ const CartItem = (props) => {
           <p className='text-lg font-semibold'>
             Total: ${props.item.totalPrice}
           </p>
-           <button onClick={decrementCartItem} className='font-semibold text-lg bg-blue-950 px-5 py-2 text-white rounded-sm cursor-pointer hover:opacity-75'>-</button>
-           <button onClick={incrementCartItem} className='font-semibold text-lg bg-blue-950 px-5 py-2 text-white rounded-sm cursor-pointer hover:opacity-75'>+</button>
+           <div className='flex lg:flex-row flex-col gap-3'>
+            <button onClick={decrementCartItem} className='font-semibold text-lg bg-blue-950 lg:px-4 px-2 lg:py-2 text-white rounded-sm cursor-pointer hover:opacity-75'>-</button>
+           <button onClick={incrementCartItem} className='font-semibold text-lg bg-blue-950 lg:px-4 px-2 lg:py-2 text-white rounded-sm cursor-pointer hover:opacity-75'>+</button>
+           </div>
 
         </div>
       </div>
