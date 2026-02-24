@@ -6,6 +6,15 @@ const Cart = () => {
 
   const itemsArray = useSelector(state => state.cart.itemList)
 
+  let total = 0
+
+  itemsArray.forEach((item) => {
+    return (
+      total += item.totalPrice
+    )
+  })
+  
+
   const produts = itemsArray.map((item, index) => {
     return (
       <CartItem key={item.id} item={item} id={item.id} />
@@ -18,7 +27,7 @@ const Cart = () => {
       <div className='flex flex-col items-center gap-3 p-3'>
         {produts}
       </div>
-        <h2 className='text-center text-2xl font-semibold mb-4'>Total: 200</h2>
+        <h2 className='text-center text-2xl font-semibold mb-4'>Total: {total}</h2>
         <div className=' flex justify-center '>
         <button className='border cursor-pointer p-2 text-lg bg-sky-300 font-semibold text-white rounded-lg '>Place Order</button>
       </div>
