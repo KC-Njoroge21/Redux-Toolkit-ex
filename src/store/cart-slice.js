@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { act } from "react";
 
 const cartSlice = createSlice({
   name: "cart",
@@ -40,6 +41,36 @@ const cartSlice = createSlice({
     },
     setShowCart(state, action) {
       state.showCart = !state.showCart
+    }, 
+    incrementCartItem(state, action) {
+      state.totalQuantity += 1
+    },
+    decrementCartItem(state, action) {
+      if (state.totalQuantity <= 0) {
+        state.totalQuantity = 0
+      } else {
+        state.totalQuantity -= 1
+      }
+    },
+    removeFromCart(action, state) {
+      const id = action.payload
+
+      const existingItem = state.itemList.find((item) => {
+        return (
+          item.id === id
+        )
+      })
+
+      if (existingItem.quantity === 1 ) {
+        state.itemList = state.itemList.filter((item) => {
+          return (
+            item.id !== id
+          )
+        })
+      } else {
+        existingItem,quantity--
+        existingItem.totalPrice -= existingItem.price
+      }
     }
 
  
