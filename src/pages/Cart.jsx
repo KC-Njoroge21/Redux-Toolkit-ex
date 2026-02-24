@@ -8,7 +8,7 @@ const Cart = () => {
 
   const produts = itemsArray.map((item, index) => {
     return (
-      <CartItem key={item.id} item={item} />
+      <CartItem key={item.id} item={item} id={item.id} />
     )
   })
 

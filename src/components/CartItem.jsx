@@ -14,12 +14,14 @@ const CartItem = (props) => {
    }))
   }
 
-  const decrementCartItem = () => {
+  
 
+  const decrementCartItem = () => {
+    dispatch(cartActions.removeFromCart(props.item.id))
   }
 
   return (
-      <div className='border shadow-lg border-gray-200 w-1/2 min-w-75'>
+      <div className='border shadow-lg border-gray-200 w-3/4 min-w-75'>
         <div className='flex justify-between p-5'>
           <h1 className='text-amber-500 text-lg font-semibold'>{props.item.name}</h1>
           <p className='text-lg font-semibold'>

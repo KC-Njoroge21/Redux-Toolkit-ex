@@ -1,82 +1,60 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { act } from "react";
+import React from "react";
 
 const cartSlice = createSlice({
   name: "cart",
   initialState: {
     itemList: [],
     totalQuantity: 0,
-    showCart: false
+    showCart: false,
   },
   reducers: {
     addToCart(state, action) {
-      const newItem = action.payload
+      const newItem = action.payload;
 
       // check if item exists
 
       const itemExists = state.itemList.find((item) => {
-        return (
-          item.id === newItem.id
-        )
-      })
+        return item.id === newItem.id;
+      });
 
       if (itemExists) {
-        itemExists.quantity++
-        itemExists.totalPrice += newItem.price
-      }
-      else {
+        itemExists.quantity++;
+        itemExists.totalPrice += newItem.price;
+      } else {
         state.itemList.push({
           id: newItem.id,
           name: newItem.name,
           price: newItem.price,
           quantity: 1,
-          totalPrice: newItem.price
-        })
+          totalPrice: newItem.price,
+        });
 
-        state.totalQuantity++
-      }
-
-      
-
-    },
-    setShowCart(state, action) {
-      state.showCart = !state.showCart
-    }, 
-    incrementCartItem(state, action) {
-      state.totalQuantity += 1
-    },
-    decrementCartItem(state, action) {
-      if (state.totalQuantity <= 0) {
-        state.totalQuantity = 0
-      } else {
-        state.totalQuantity -= 1
+        state.totalQuantity++;
       }
     },
-    removeFromCart(action, state) {
-      const id = action.payload
+    removeFromCart(state, action) {
+      const id = action.payload;
 
       const existingItem = state.itemList.find((item) => {
-        return (
-          item.id === id
-        )
-      })
+        return item.id === id;
+      });
 
-      if (existingItem.quantity === 1 ) {
+      if (existingItem.quantity === 1) {
         state.itemList = state.itemList.filter((item) => {
-          return (
-            item.id !== id
-          )
-        })
+          return item.id !== id;
+        });
+        state.totalQuantity--;
       } else {
-        existingItem,quantity--
-        existingItem.totalPrice -= existingItem.price
+        existingItem.quantity--;
+        existingItem.totalPrice -= existingItem.price;
       }
-    }
+    },
+    setShowCart(state, action) {
+      state.showCart = !state.showCart;
+    },
+  },
+});
 
- 
-  }
-
-})
-
-export const cartActions = cartSlice.actions
-export default cartSlice
+export const cartActions = cartSlice.actions;
+export default cartSlice;
